@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+  <meta charset="utf-8">
+  <title>The BioDigital Human</title>
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme"> 
+  <link rel="stylesheet" href="plugin/highlight/styles/docco.css"> 
+  <link rel="icon" type="image/png" href="img/bd-logo.png">
+  <style>
+
+    .reveal .slide-number {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .reveal section img {
+      max-height: 400px;
+    }
+
+    .reveal pre {
+      margin-left: -12%;
+      box-shadow: none;
+      width: 125%;
+    }
+
+    .reveal .sub-header {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 0.15em;
+    }
+
+    .reveal .me {
+      margin-top: 42px;
+    }
+
+    .reveal ul ul {
+      font-size: 0.8em;
+    }
+
+    .reveal .reference {
+      font-size: 0.5em;
+    }
+
+    #rasterization {
+      height: 300px;
+    }
+
+    iframe {
+      width: 1000px;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>The BioDigital Human</h1>
+        <h2>Opportunities and Challenges of WebGL</h2>
+        <p class="me">Tarek Sherif</p>
+        <p>BioDigital</p>
+      </section>
+
+      <section>
+        <h3>BioDigital's Goals</h3>
+        <ul>
+          <li>Use interactive 3D to make anatomical content engaging</li>
+          <li>
+            Move beyond the anatomy atlas
+            <ul>
+              <li>Tell stories</li>
+              <li>Bring content to life</li>
+              <li>Map data to and from 3D models</li>
+            </ul>
+          </li>
+          <li>Make it all widely accessible through the web (including mobile!)</li>
+        </ul>
+      </section>
+
+      <section>
+        <iframe src="https://human.biodigital.com/m/health-conditions/bones,-joints-and-muscles/running-mechanics.html?dk=dc1db956ebbe5c71e7100d9420c7362c9a53535d"></iframe>
+      </section>
+
+      <section>
+        <h3>The BioDigital Human</h3>
+          <ul>
+            <li>
+              3D content library
+              <ul>
+                <li>5000+ anatomy objects</li>
+                <li>500+ health conditions</li>
+              </ul>
+            </li>
+            <li>
+              Rendering engine built on SceneJS
+            </li>
+            <li>User-created annotations and custom views</li>
+            <li>API for embedding Human content into external websites</li>
+          </ul>
+      </section>
+
+      <section>
+        <h3>The BioDigital Human</h3>
+        <div class="sub-header">Key Clients</div>
+        <ul>
+          <li>Medical device manufacturers</li>
+          <li>Pharmaceutical</li>
+          <li>Educational</li>
+          <li>Medical students</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Why WebGL?</h3>
+          <div class="sub-header">Pros</div>
+          <ul>
+            <li>It's everywhere!</li>
+            <li>Use HTML/CSS/JavaScript for easy UI</li>
+            <li>Integrate into client web sites</li>
+            <li>Leverage existing web services</li>
+            <li>(Relatively) easy distribution</li>
+            <li>(Relatively) easy deployment of updates</li>
+          </ul>
+      </section>
+
+      <section>
+        <h3>In a nutshell...</h3>
+          <ul>
+            <li>Leverage the entire infrastructure of the Web as a platform</li>
+          </ul>
+      </section>
+
+      <section>
+        <h3>Why WebGL?</h3>
+          <div class="sub-header">Cons</div>
+          <ul>
+            <li>
+              Web UX expectations
+              <ul>
+                <li>It should be fast</li>
+                <li>It should be easy</li>
+                <li>It should just work</li>
+              </ul>
+            </li>
+          </ul>
+        <div>
+          <img src="img/louis.jpg">
+          <!-- Original image: http://s556.photobucket.com/user/wwm/media/louie.jpg.html -->
+        </div>
+      </section>
+
+      <section>
+        <h3>Why WebGL?</h3>
+        <div class="sub-header">Cons</div>
+        <ul>
+          <li>
+            JavaScript!!!
+            <ul>
+              <li>Memory management is hard</li>
+              <li>Common JS patterns are bad for performance</li>  
+            </ul>
+          </li>
+        </ul>
+        <pre>
+          <code>
+            object.transform({
+              rotate: {
+                axis: vec1.cross(vec2).normalize(),
+                angle: Math.PI / 4
+              } 
+            })
+          </code>
+        </ul>
+      </section>
+
+
+      <section>
+        <h3>WebGL in Production</h3>
+        <div class="sub-header">The BioDigital Production Pipeline</div>
+        <img src="img/pipeline.png">
+      </section>
+
+      <section>
+        <h3>Types of Content</h3>
+        <ul>
+          <li>
+            <a target="_blank" href="https://human.biodigital.com/widgets/duke-stroke-sim/?m=client/Duke/brain_regions.json">Static content</a>
+          </li>
+          <li>
+            <a target="_blank" href="http://human.biodigital.com/widget?m=client/about/glucose_transport_tour.json&ui-tools=true&ui-panel=true&pre=false">Tween animations</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://preview.biodigital.com/widget/?m=public_preview/whole_beating_healthy_heart.json">Morph targets</a>
+          </li>
+          <li>
+            <a target="_blank" href="http://human.biodigital.com/widget?m=acl_repair&ui-tools=true&ui-panel=false&pre=false">Basic tours</a>
+          </li>
+          <li>
+            <a target="_blank" href="http://human.biodigital.com/widgets/craniofacial/?m=craniofacial/fronto-orbital_advancement.json&ui-tools=true&ui-panel=true&pre=false">Complex tours</a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Content Challenges</h3>
+        <div class="sub-header">SIZE!</div>
+        <ul>
+          <li>Artists want it beautiful: big textures, detailed geometry</li>
+          <li>Engineers want it to not crash on an iPhone</li>
+          <li>Tension between anatomical detail and application stability</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Content Challenges</h3>
+        <div class="sub-header">Pipeline Issues</div>
+        <ul>
+          <li>Artists (mostly) don't write code</li>
+          <li>
+            Have to map Maya properties or structures to GL variables and GLSL code
+            <ul>
+              <li>Authoring versus runtime representations of data</li>
+            </ul>
+          </li>
+        </ul> 
+      </section>
+
+      <section>
+        <h3>Rendering</h3>
+        <ul>
+          <li>
+            Navigating anatomical content is difficult
+            <ul>
+              <li>Deeply nested</li>
+              <li>Hierarchical</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Rendering</h3>
+        <ul>
+          <li>
+            Focus on giving users ways to view, emphasize, interact with information of interest:
+            <ul>
+              <li>Highlight object</li>
+              <li>Highlight region (defined by texture)</li>
+              <li>Dissect (remove an object)</li>
+              <li>Isolate (remove all other objects)</li>
+              <li>Transparency</li>
+              <li>Annotations</li>
+              <li>(+ text, audio, video, etc.)</li>
+            </ul> 
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Example</h3>
+        <a href="https://preview.biodigital.com/widget/?m=public_preview/whole_beating_healthy_heart.json&ui-panel=false" target="_blank">The Human Heart</a>
+      </section>
+
+      <section>
+        <h3>Rendering</h3>
+        <ul>
+          <li>
+            Some things are simple:
+            <ul>
+              <li>Remove object: Disable its branch in the scene graph</li>
+            </ul> 
+          </li>
+          <li>
+            Some things are less so:
+            <ul>
+              <li>Annotations: Map 3D point to 2D canvas position, manipulate DOM elements, check occlusion, follow morphing geometry</li>
+            </ul> 
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Rendering Challenges</h3>
+        <div class="sub-header">MOBILE!</div>
+        <ul>
+          <li>Rendering performance and memory can be severely limited on mobile devices</li>
+          <li>
+            Possible to query some properties:
+            <ul>
+              <li>GL Variable limits (uniforms, varyings, texture units)</li>
+              <li>Shader precision</li>
+            </ul>
+          </li>
+          <li>
+            Not others:
+            <ul>
+              <li>GPU memory</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Rendering Challenges</h3>
+        <div class="sub-header">ARGGGH... APPLE!!!</div>
+        <div>
+          <img src="img/ios-limits.png">
+          <!--  -->
+        </div>
+        <div class="reference">
+          Source: <a href="http://codeflow.org/entries/2014/jun/08/some-issues-with-apples-ios-webgl-implementation/">http://codeflow.org/entries/2014/jun/08/some-issues-with-apples-ios-webgl-implementation/</a>
+        </div>
+      </section>
+
+      <section>
+        <h3>Human API</h3>
+        <ul>
+          <li>
+            Embed Human content in an external web page through an iFrame
+          </li>
+          <li>
+            Basic interactions built-in
+            <ul>
+              <li>Mouse movement</li>
+              <li>Dissection, highlight, annotate, etc.</li>
+            </ul>
+          </li>
+          <li>UI can be customized through URL parameters</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Human API</h3>
+        <ul>
+          <li>
+            For more customized interactions, use the JavaScript API
+            <ul>
+              <li>Communicates with iFrame using the window messaging API</li>
+            </ul>
+          </li>
+        </ul>
+        <pre>
+          <code>
+              var human = new HumanAPI.Human("iFrameID"); 
+
+              human.camera.flyTo({
+                  eye: { z: -25 },
+                  velocity: 20
+              });
+
+              human.pick.on("picked", function(e) {
+                console.log(e.worldPos);
+              });
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h3>Example</h3>
+        <ul>
+          <li><a target="_blank" href="http://conditions.about.com/cc/type2diabetes/overview/signs-symptoms/signs_intro">About.com Diabetes Page</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>API Challenges</h3>
+        <ul>
+          <li>
+            Want the average web developer to understand it all
+            <ul>
+              <li>3D terminology and concepts</li>
+              <li>3D navigation</li>
+              <li>Anatomical concepts</li>
+              <li>Architecture of the Human</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Solution</h3>
+        <ul>
+          <li>Documentation</li>
+          <li>Tutorials</li>
+          <li>Support</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Get involved!</h3>
+        <ul>
+          <li>
+            Try out the API!
+            <a target="_blank" href="https://developer.biodigital.com">https://developer.biodigital.com</a>
+          </li>
+          <li>
+            BioDigital summer internships!
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Thanks!</h1>
+        <ul>
+          <li><a href="mailto:tarek@biodigital.com">tarek@biodigital.com</a></li>
+          <li><a target="_blank" href="https://twitter.com/thsherif">@thsherif</a></li>
+          <li><a target="_blank" href="https://www.biodigital.com">www.biodigital.com</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script src="js/highlight.min.js"></script>
+  <script>
+    Reveal.initialize({
+      //transition: "none",
+      history: true,
+      slideNumber: true,
+      controls: false
+    });
+
+    hljs.initHighlightingOnLoad();
+    
+  </script>
+</body>
+</html>
