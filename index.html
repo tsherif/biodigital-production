@@ -75,7 +75,7 @@
               <li>Map data to and from 3D models</li>
             </ul>
           </li>
-          <li>Make it all widely accessible through the web (including mobile!)</li>
+          <li>Make it all widely accessible through the Web</li>
         </ul>
       </section>
 
@@ -110,6 +110,15 @@
           <li>Educational</li>
           <li>Medical students</li>
         </ul>
+      </section>
+
+      <section>
+        <h3>What is WebGL?</h3>
+        <ul>
+          <li>A low-level JavaScript API provides access to the GPU</li>
+          <li>Allows for high-performance, interactive 3D graphics on the Web</li>
+        </ul>
+        <img src="img/webgl.jpg">
       </section>
 
       <section>
@@ -177,9 +186,13 @@
 
 
       <section>
-        <h3>WebGL in Production</h3>
-        <div class="sub-header">The BioDigital Production Pipeline</div>
-        <img src="img/pipeline.png">
+        <h3>The BioDigital Human</h3>
+        <div class="sub-header">Key Components</div>
+        <ul>
+          <li>Content</li>
+          <li>3D Rendering</li>
+          <li>Integration and API</li>
+        </ul>
       </section>
 
       <section>
@@ -189,16 +202,10 @@
             <a target="_blank" href="https://human.biodigital.com/widgets/duke-stroke-sim/?m=client/Duke/brain_regions.json">Static content</a>
           </li>
           <li>
-            <a target="_blank" href="http://human.biodigital.com/widget?m=client/about/glucose_transport_tour.json&ui-tools=true&ui-panel=true&pre=false">Tween animations</a>
+            <a target="_blank" href="http://human.biodigital.com/widget?m=client/about/glucose_transport_tour.json&ui-tools=true&ui-panel=true&pre=false">Animated content</a>
           </li>
           <li>
-            <a target="_blank" href="https://preview.biodigital.com/widget/?m=public_preview/whole_beating_healthy_heart.json">Morph targets</a>
-          </li>
-          <li>
-            <a target="_blank" href="http://human.biodigital.com/widget?m=acl_repair&ui-tools=true&ui-panel=false&pre=false">Basic tours</a>
-          </li>
-          <li>
-            <a target="_blank" href="http://human.biodigital.com/widgets/craniofacial/?m=craniofacial/fronto-orbital_advancement.json&ui-tools=true&ui-panel=true&pre=false">Complex tours</a>
+            <a target="_blank" href="http://human.biodigital.com/widget?m=acl_repair&ui-tools=true&ui-panel=false&pre=false">Tours</a>
           </li>
         </ul>
       </section>
@@ -214,20 +221,6 @@
       </section>
 
       <section>
-        <h3>Content Challenges</h3>
-        <div class="sub-header">Pipeline Issues</div>
-        <ul>
-          <li>Artists (mostly) don't write code</li>
-          <li>
-            Have to map Maya properties or structures to GL variables and GLSL code
-            <ul>
-              <li>Authoring versus runtime representations of data</li>
-            </ul>
-          </li>
-        </ul> 
-      </section>
-
-      <section>
         <h3>Rendering</h3>
         <ul>
           <li>
@@ -235,6 +228,7 @@
             <ul>
               <li>Deeply nested</li>
               <li>Hierarchical</li>
+              <li>Scale (from cells to whole body)</li>
             </ul>
           </li>
         </ul>
@@ -264,24 +258,6 @@
       </section>
 
       <section>
-        <h3>Rendering</h3>
-        <ul>
-          <li>
-            Some things are simple:
-            <ul>
-              <li>Remove object: Disable its branch in the scene graph</li>
-            </ul> 
-          </li>
-          <li>
-            Some things are less so:
-            <ul>
-              <li>Annotations: Map 3D point to 2D canvas position, manipulate DOM elements, check occlusion, follow morphing geometry</li>
-            </ul> 
-          </li>
-        </ul>
-      </section>
-
-      <section>
         <h3>Rendering Challenges</h3>
         <div class="sub-header">MOBILE!</div>
         <ul>
@@ -289,8 +265,9 @@
           <li>
             Possible to query some properties:
             <ul>
-              <li>GL Variable limits (uniforms, varyings, texture units)</li>
+              <li>GL variable limits</li>
               <li>Shader precision</li>
+              <li>Available extensions</li>
             </ul>
           </li>
           <li>
@@ -307,7 +284,6 @@
         <div class="sub-header">ARGGGH... APPLE!!!</div>
         <div>
           <img src="img/ios-limits.png">
-          <!--  -->
         </div>
         <div class="reference">
           Source: <a href="http://codeflow.org/entries/2014/jun/08/some-issues-with-apples-ios-webgl-implementation/">http://codeflow.org/entries/2014/jun/08/some-issues-with-apples-ios-webgl-implementation/</a>
